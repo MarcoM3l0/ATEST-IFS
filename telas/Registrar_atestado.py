@@ -1,37 +1,38 @@
-import json
-import os
-import funcionalidades.verificacao as verificacao
+import funcionalidades.verificacao as verificar
+import funcionalidades.registrar as opcoes_rig
 
 def tela_registrar_atestado():
     while True:
         print("Registro de Novo Atestado")
         print("========================")
 
-        # Diretório base do arquivo Python
-        diretorio_base = os.path.dirname(os.path.abspath(__file__))
-        
-        # Caminho para o arquivo JSON
-        caminho_arquivo_json = os.path.join(diretorio_base, "..", "db", "doc_aceitos.json")
-
-        # Leitura do arquivo JSON
-        with open(caminho_arquivo_json, encoding="utf-8") as file:
-            opcoes_atestados = json.load(file)
-
-        # Exibição das opções
-        for chave, opcao in opcoes_atestados.items():
-            print(f"{chave}. {opcao}")
+        opcoes_rig.exibir_opcoe()
 
         print("========================")
         print("Selecione o tipo do atestado (o algarismo correspondente):")
 
         opcao = input("Opção: ").upper().strip()
 
-        validado = verificacao.verificar_algarismo_registrar(opcao)
+        validado = verificar.verificar_algarismo_registrar(opcao)
         if validado:
             return opcao
 
-        verificacao.limpar_tela()
+        verificar.limpar_tela()
 
+def verificar_data(opcao):
+    while True:
+        print(f'   Opeção - {opcao}')
+        print("========================")
+        print("Digite a data de emissão do Atestado(formato [DD/MM/AAAA]):")
+        data = input("Data:")
+
+        validado = verificar.validar_data(data)
+        if validado:
+            return data
+
+        verificar.limpar_tela()
 
 def registrar():
-    tela_registrar_atestado()
+    opcao = tela_registrar_atestado()
+    verificar.limpar_tela()
+    verificar_data(opcao)
