@@ -1,7 +1,7 @@
 # Documentação do Projeto - ATEST-IFS 📝
 
 Aluno: José Marco Melo Nascimento  
-Curso: Ciência da Computação - 3° periodo 
+Curso: Ciência da Computação - 3° periodo   
 Disciplina: Linguagem de Programação I  
 Professor: Prof. Me. Carlos Almeida  
 Projeto: ATEST-IFS - Atestados no IFS
