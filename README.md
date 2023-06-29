@@ -8,7 +8,7 @@ Projeto: ATEST-IFS - Atestados no IFS
 
 ## Descrição 📄
 
-O projeto "Atestados IFS" tem como objetivo desenvolver um aplicativo console em Python para gerenciar o recebimento de atestados no Instituto Federal de Educação, Ciência e Tecnologia de Sergipe (IFS). O aplicativo visa automatizar o processo de recebimento, registro e acompanhamento dos atestados apresentados pelos estudantes do IFS.
+O projeto "ATEST-IFS" tem como objetivo desenvolver um aplicativo console em Python para gerenciar o recebimento de atestados no Instituto Federal de Educação, Ciência e Tecnologia de Sergipe (IFS). O aplicativo visa automatizar o processo de recebimento, registro e acompanhamento dos atestados apresentados pelos estudantes do IFS.
 
 ## Objetivos do Projeto 🎯
 
