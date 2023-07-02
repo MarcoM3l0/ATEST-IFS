@@ -23,10 +23,12 @@ def tela_registrar_atestado():
 
 def verificar_data(opcao):
     while True:
-        print(f'   Opeção - {opcao}')
+        print(f'   Opção - {opcao}')
         print("========================")
         print("Digite a data de emissão do Atestado(formato [DD/MM/AAAA]):")
         data = input("Data:")
+
+        verificar.limpar_tela()
 
         validado, dt_limite = verificar.validar_data(data)
         if validado and dt_limite == 0:
@@ -47,6 +49,8 @@ def registrar():
         return
     
     prosseguir, data = verificar_data(opcao)
+
+    verificar.limpar_tela()
 
     if prosseguir:
         requerimento.tela_registro_atestado(data)

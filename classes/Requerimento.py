@@ -1,6 +1,15 @@
+import time
+import base64
+import os
+import os.path
+import json
 import cv2
 from tkinter import Tk
 from tkinter.filedialog import askopenfilename
+
+import funcionalidades.verificacao as limpar
+import telas.Registrar_atestado as registrar_atestado
+import main as main
 
 class Requerimento:
     def __init__(self, nome, curso, email, matricula, celular, justificativa_de_falat, segunda_chamada, exposicao_de_motivos, data_atestado, data_recebimento, assinatura):
@@ -20,11 +29,7 @@ class Requerimento:
         Tk().withdraw()  # Esconde a janela principal do Tkinter
         caminho_imagem = askopenfilename()
         imagem = cv2.imread(caminho_imagem) # pylint: disable=no-member
-        self.imagem = imagem
-
-from tkinter import Tk
-from tkinter.filedialog import askopenfilename
-import cv2
+        self.atestado = imagem
 
 def tela_registro_atestado(data):
     while True:
@@ -38,8 +43,12 @@ def tela_registro_atestado(data):
         matricula = input("Matrícula: ")
         celular = input("Celular: ")
 
-        justificativa_de_falta = input("Justificativa de falta: ")
-        segunda_chamada = input("Segunda chamada: ")
+        limpar.limpar_tela()
+
+        justificativa_de_falta = input("Justificativa de falta[S/N]: ")
+        segunda_chamada = input("Segunda chamada [S/N]: ")
+
+        limpar.limpar_tela()
 
         data_atestado = data
         data_recebimento = input("Data de recebimento: ")
@@ -47,6 +56,7 @@ def tela_registro_atestado(data):
 
         exposicao_de_motivos = input("Exposição de motivos: ")
 
+        limpar.limpar_tela()
         # Função para carregar o atestado digitalizado
         def carregar_atestado():
             Tk().withdraw()  # Esconde a janela principal do Tkinter
@@ -55,7 +65,9 @@ def tela_registro_atestado(data):
             return imagem
 
         # Chamada da função para carregar o atestado digitalizado
-        imagem_atestado = carregar_atestado()
+        print("Escolha o atestado")
+        imagem_atestado = carregar_atestado() # Figurativo
+        limpar.limpar_tela()
 
         # Criando uma instância do Requerimento com os dados fornecidos
         requerimento = Requerimento(
@@ -71,12 +83,52 @@ def tela_registro_atestado(data):
             data_recebimento,
             assinatura
         )
-        requerimento.imagem = imagem_atestado
+
+    
+        # Diretório base do arquivo Python
+        diretorio_base = os.path.dirname(os.path.abspath(__file__))
+
+        # Convertendo o objeto Requerimento para um dicionário
+        dados_requerimento = {
+            "nome": requerimento.nome,
+            "curso": requerimento.curso,
+            "email": requerimento.email,
+            "matricula": requerimento.matricula,
+            "celular": requerimento.celular,
+            "justificativa_de_falta": requerimento.justificativa_de_falta,
+            "segunda_chamada": requerimento.segunda_chamada,
+            "exposicao_de_motivos": requerimento.exposicao_de_motivos,
+            "data_recebimento": requerimento.data_recebimento,
+            "assinatura": requerimento.assinatura,
+        }
+
+        # Caminho para o arquivo JSON
+        caminho_arquivo_json = os.path.join(diretorio_base, "..", "db", "requerimentos.json")
+
+        # Salvando os dados em um arquivo JSON
+        with open(caminho_arquivo_json, "w", encoding="utf-8") as arquivo_json:
+            json.dump(dados_requerimento, arquivo_json)
 
         print("===============================================")
-        print("Atestado registrado com sucesso!")
+        print("      Atestado registrado com sucesso!")
         print("===============================================")
 
-        opcao = input("Digite 's' para registrar outro atestado ou 'q' para voltar ao menu principal: ")
-        if opcao.lower() == 'q':
-            return
+        while True:
+
+            limpar.limpar_tela()
+
+            opcao = input("Digite 's' para registrar outro atestado ou 'q' para voltar ao menu principal: ")
+
+            if opcao.lower() == 'q' or opcao.lower() == 's':
+                if opcao.lower() == 'q':
+                    main.main()
+                    return
+                elif opcao.lower() == 's':
+                    registrar_atestado.tela_registrar_atestado()
+                    return
+
+            limpar.limpar_tela()
+
+            print("\033[91mErro: DIGITE APENAS  's' ou 'q'!\033[0m")
+            time.sleep(0.5) # Aguarda meio segundo
+            
