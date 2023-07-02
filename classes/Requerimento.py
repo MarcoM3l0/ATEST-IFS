@@ -88,6 +88,7 @@ def tela_registro_atestado(data):
         # Diretório base do arquivo Python
         diretorio_base = os.path.dirname(os.path.abspath(__file__))
 
+
         # Convertendo o objeto Requerimento para um dicionário
         dados_requerimento = {
             "nome": requerimento.nome,
@@ -105,9 +106,24 @@ def tela_registro_atestado(data):
         # Caminho para o arquivo JSON
         caminho_arquivo_json = os.path.join(diretorio_base, "..", "db", "requerimentos.json")
 
+        # Verificar se o arquivo JSON já existe
+        if os.path.isfile(caminho_arquivo_json):
+            # Ler os dados existentes do arquivo JSON
+            with open(caminho_arquivo_json, "r", encoding="utf-8") as arquivo_json:
+                conteudo = arquivo_json.read()
+                if conteudo:
+                    conteudo_json = json.loads(conteudo)
+                else:
+                    conteudo_json = []
+        else:
+            conteudo_json = []
+
+        # Adicionar o novo requerimento ao conteúdo existente
+        conteudo_json.append(dados_requerimento)
+
         # Salvando os dados em um arquivo JSON
         with open(caminho_arquivo_json, "w", encoding="utf-8") as arquivo_json:
-            json.dump(dados_requerimento, arquivo_json)
+            json.dump(conteudo_json, arquivo_json)
 
         print("===============================================")
         print("      Atestado registrado com sucesso!")
