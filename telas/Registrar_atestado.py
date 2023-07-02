@@ -29,7 +29,7 @@ def verificar_data(opcao):
 
         validado = verificar.validar_data(data)
         if validado:
-            return data
+            return True, data
 
         verificar.limpar_tela()
 
@@ -41,4 +41,4 @@ def registrar():
         main.main()
         return
     
-    verificar_data(opcao)
+    prosseguir, data = verificar_data(opcao)
