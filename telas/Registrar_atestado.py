@@ -1,5 +1,6 @@
 import funcionalidades.verificacao as verificar
 import funcionalidades.registrar as opcoes_rig
+import main
 
 def tela_registrar_atestado():
     while True:
@@ -35,4 +36,9 @@ def verificar_data(opcao):
 def registrar():
     opcao = tela_registrar_atestado()
     verificar.limpar_tela()
+
+    if opcao == 'X':
+        main.main()
+        return
+    
     verificar_data(opcao)
