@@ -1,6 +1,7 @@
 import funcionalidades.verificacao as verificar
 import funcionalidades.registrar as opcoes_rig
 import main
+import classes.Requerimento as requerimento
 
 def tela_registrar_atestado():
     while True:
@@ -27,10 +28,14 @@ def verificar_data(opcao):
         print("Digite a data de emissão do Atestado(formato [DD/MM/AAAA]):")
         data = input("Data:")
 
-        validado = verificar.validar_data(data)
-        if validado:
+        validado, dt_limite = verificar.validar_data(data)
+        if validado and dt_limite == 0:
             return True, data
-
+        
+        if dt_limite == 1:
+            main.main()
+            return
+        
         verificar.limpar_tela()
 
 def registrar():
@@ -42,3 +47,6 @@ def registrar():
         return
     
     prosseguir, data = verificar_data(opcao)
+
+    if prosseguir:
+        requerimento.tela_registro_atestado(data)

@@ -36,7 +36,7 @@ def validar_data(data_str):
     except ValueError:
         print("\033[91mErro: formatação errada digite de novo\033[0m")
         time.sleep(0.5) # Aguarda meio segundo
-        return False
+        return False, 0
     
     # Obter a data atual
     data_atual = datetime.now().date()
@@ -46,7 +46,7 @@ def validar_data(data_str):
     if diferenca > timedelta(days=5):
         print("\033[91mJá se passaram cinco dias desde a data inserida.\033[0m")
         print("\033[91m Capítulo IV - § 3° A solicitação de justificativa de falta deverá ser realizada em até 5 dias corritos (...) \033[0m")
-        time.sleep(2) # Aguarda 2 segundos
-        return False
+        time.sleep(3) # Aguarda 2 segundos
+        return False, 1
     else:
-        return True
+        return True, 0
