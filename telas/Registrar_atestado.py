@@ -34,9 +34,10 @@ def verificar_data(opcao):
         if validado and dt_limite == 0:
             return True, data
         
-        if dt_limite == 1:
+        if not validado and dt_limite == 1:
+            verificar.limpar_tela()
             main.main()
-            return
+            return False, data
         
         verificar.limpar_tela()
 

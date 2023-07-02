@@ -1,5 +1,5 @@
 import time
-import base64
+from datetime import date
 import os
 import os.path
 import json
@@ -51,12 +51,15 @@ def tela_registro_atestado(data):
         limpar.limpar_tela()
 
         data_atestado = data
-        data_recebimento = input("Data de recebimento: ")
+        data_recebimento = date.today()
+        data_recebimento = data_recebimento.strftime('%d/%m/%Y')
+        print(f"Data de recebimento: {data_recebimento}")
         assinatura = input("Assinatura: ")
 
         exposicao_de_motivos = input("Exposição de motivos: ")
 
         limpar.limpar_tela()
+        
         # Função para carregar o atestado digitalizado
         def carregar_atestado():
             Tk().withdraw()  # Esconde a janela principal do Tkinter
