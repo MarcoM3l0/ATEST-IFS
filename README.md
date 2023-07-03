@@ -1,9 +1,9 @@
 # Documentação do Projeto - ATEST-IFS 📝
 
-Aluno: José Marco Melo Nascimento 👨‍🎓
-Curso: Ciência da Computação - 3° período 🎓
-Disciplina: Linguagem de Programação I 🖥️
-Projeto: ATEST-IFS - Atestados no IFS 🏥
+Aluno: José Marco Melo Nascimento 👨‍🎓 <br>
+Curso: Ciência da Computação - 3° período 🎓<br>
+Disciplina: Linguagem de Programação I 🖥️<br>
+Projeto: ATEST-IFS - Atestados no IFS 🏥<br>
 
 ## Descrição 📄
 
