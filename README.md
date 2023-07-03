@@ -45,9 +45,7 @@ O sistema de pastas do aplicativo é organizado de forma a manter uma estrutura 
    - Esses arquivos contêm funções que são chamadas a partir das telas para executar as ações relacionadas a cada funcionalidade.
 
 4. `db/`:
-   - Essa pasta contém os arquivos relacionados ao banco de dados do aplicativo.
-   - O arquivo `db.py` é responsável por criar e gerenciar o banco de dados SQLite.
-   - O arquivo `models.py` define as classes que representam as tabelas do banco de dados e fornece métodos para manipular os dados nessas tabelas.
+   - Essa pasta contém os arquivos relacionados ao banco de dados do aplicativo em .json.
 
 5. `classes/`:
    - Esta pasta contém os arquivos que definem as classes do aplicativo.
