@@ -13,6 +13,23 @@ import main as main
 
 class Requerimento:
     def __init__(self, nome, curso, email, matricula, celular, justificativa_de_falat, segunda_chamada, exposicao_de_motivos, data_atestado, data_recebimento, assinatura):
+        """
+        Classe que representa um Requerimento.
+        
+        Args:
+            nome (str): Nome do requerente.
+            curso (str): Curso do requerente.
+            email (str): Email do requerente.
+            matricula (str): Matrícula do requerente.
+            celular (str): Número de celular do requerente.
+            justificativa_de_falta (str): Justificativa de falta (S ou N).
+            segunda_chamada (str): Indicação de segunda chamada (S ou N).
+            exposicao_de_motivos (str): Exposição de motivos.
+            data_atestado (str): Data do atestado.
+            data_recebimento (str): Data de recebimento do requerimento.
+            assinatura (str): Assinatura do requerente.
+        """
+        
         self.nome = nome
         self.curso = curso
         self.email = email
@@ -26,12 +43,26 @@ class Requerimento:
         self.assinatura = assinatura
 
     def atestado_digitalizado(self):
+        """
+        Carrega um arquivo de imagem contendo o atestado digitalizado.
+        """
+
         Tk().withdraw()  # Esconde a janela principal do Tkinter
         caminho_imagem = askopenfilename()
         imagem = cv2.imread(caminho_imagem) # pylint: disable=no-member
         self.atestado = imagem
 
 def tela_registro_atestado(data):
+    """
+    Função para registrar um atestado.
+
+    Args:
+        data (str): Data atual.
+
+    Returns:
+        None
+    """
+
     while True:
         print("         Registro de Atestado")
         print("===============================================")
@@ -62,6 +93,13 @@ def tela_registro_atestado(data):
         
         # Função para carregar o atestado digitalizado
         def carregar_atestado():
+            """
+            Função para carregar um atestado digitalizado.
+
+            Returns:
+                imagem (ndarray): Imagem do atestado.
+            """
+
             Tk().withdraw()  # Esconde a janela principal do Tkinter
             caminho_imagem = askopenfilename()
             imagem = cv2.imread(caminho_imagem) # pylint: disable=no-member

@@ -5,6 +5,16 @@ import telas.Consultar_atestados as consulta
 
 
 def main():
+
+    """
+    Função principal que controla o fluxo do aplicativo.
+
+    A função exibe a tela inicial do aplicativo, verifica a opção escolhida pelo usuário e chama as funcionalidades
+    correspondentes com base na escolha.
+
+    :return: None
+    """
+
     opcao_escolhida = inicio.tela_inicial()
     if opcao_escolhida == "1":
         verificacao.limpar_tela()

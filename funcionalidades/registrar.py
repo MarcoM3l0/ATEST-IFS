@@ -2,6 +2,18 @@ import json
 import os
 
 def exibir_opcoe():
+    """
+    Exibe as opções de atestados a partir de um arquivo JSON.
+
+    Esta função lê um arquivo JSON que contém opções de atestados e exibe-as na saída padrão.
+
+    Requisitos:
+        - O arquivo JSON deve estar localizado no diretório "../db/doc_aceitos.json".
+
+    Exemplo de uso:
+        exibir_opcoe()
+    """
+    
     # Diretório base do arquivo Python
     diretorio_base = os.path.dirname(os.path.abspath(__file__))
     

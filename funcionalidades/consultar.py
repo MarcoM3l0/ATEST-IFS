@@ -2,6 +2,16 @@ import json
 import os
 
 def consultar_atestados_por_matricula(matricula):
+    """
+    Consulta os atestados de um determinado aluno por matrícula.
+
+    Parâmetros:
+        - matricula (str): Matrícula do aluno a ser consultada.
+
+    Retorna:
+        Uma lista contendo os atestados encontrados para a matrícula especificada.
+
+    """
 
     # Diretório base do arquivo Python
     diretorio_base = os.path.dirname(os.path.abspath(__file__))
@@ -19,13 +29,32 @@ def consultar_atestados_por_matricula(matricula):
 
     return atestados_encontrados
 
-# Consultar os atestados pela matrícula
 def cunsultar(matricula_desejada):
+    """
+    Consulta os atestados de um determinado aluno e exibe os resultados.
+
+    Parâmetros:
+        - matricula_desejada (str ou int): Matrícula do aluno a ser consultada.
+
+    Retorna:
+        - False: Caso o usuário digite 'q' para voltar ao menu principal.
+        - True: Caso o usuário digite 's' para procurar outro atestado.
+
+    """
+
     resultados = consultar_atestados_por_matricula(matricula_desejada)
     return exibir_os_resultados(resultados, matricula_desejada)
 
-# Exibir os resultados
 def exibir_os_resultados(resultados, matricula_desejada):
+    """
+    Exibe os resultados da consulta dos atestados de um aluno.
+
+    Parâmetros:
+        - resultados (list): Lista contendo os atestados encontrados.
+        - matricula_desejada (str ou int): Matrícula do aluno consultado.
+
+    """
+    
     if resultados:
         print("Atestados encontrados para a matrícula", matricula_desejada + ":")
         for atestado in resultados:

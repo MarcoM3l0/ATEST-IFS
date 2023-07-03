@@ -3,6 +3,15 @@ import funcionalidades.consultar as consulta
 import main
 
 def consultar_atestados():
+    """
+    Função responsável por permitir a consulta de atestados médicos.
+
+    Esta função solicita ao usuário uma matrícula e consulta os atestados médicos associados a essa matrícula.
+    O resultado da consulta é exibido na tela.
+
+    Returns:
+        None
+    """
     while True:  
         print("  Consulta de Atestados")
         print("=========================")

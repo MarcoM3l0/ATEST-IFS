@@ -4,6 +4,12 @@ import main
 import classes.Requerimento as requerimento
 
 def tela_registrar_atestado():
+    """
+    Exibe a tela de registro de novo atestado e solicita a seleção do tipo do atestado.
+
+    Returns:
+        str: O tipo do atestado selecionado.
+    """
     while True:
         print("Registro de Novo Atestado")
         print("========================")
@@ -22,6 +28,15 @@ def tela_registrar_atestado():
         verificar.limpar_tela()
 
 def verificar_data(opcao):
+    """
+    Verifica a validade da data de emissão do atestado.
+
+    Args:
+        opcao (str): O tipo do atestado selecionado.
+
+    Returns:
+        tuple: Uma tupla contendo um valor booleano indicando se a data é válida e a data de emissão.
+    """
     while True:
         print(f'   Opção - {opcao}')
         print("========================")
@@ -42,6 +57,15 @@ def verificar_data(opcao):
         verificar.limpar_tela()
 
 def registrar():
+    """
+    Função principal para o registro de atestados.
+
+    Essa função realiza o registro de um novo atestado, exibindo a tela de registro,
+    solicitando o tipo do atestado e verificando a validade da data de emissão.
+
+    Retorna:
+        None
+    """
     opcao = tela_registrar_atestado()
     verificar.limpar_tela()
 
