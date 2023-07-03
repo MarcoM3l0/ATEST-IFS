@@ -49,7 +49,6 @@ O sistema de pastas do aplicativo é organizado de forma a manter uma estrutura 
 
 5. `classes/`:
    - Esta pasta contém os arquivos que definem as classes do aplicativo.
-   - Os arquivos `usuario.py` e `atestado.py` definem as classes "Usuario" e "Atestado", respectivamente, com seus atributos e métodos correspondentes.
 
 ### Como executar o aplicativo ▶️
 
@@ -68,7 +67,7 @@ python main.py
 
 ## Conclusão 🎓
 
-O projeto "Atestados IFS" é um aplicativo console desenvolvido em Python que visa automatizar o processo de recebimento, registro e acompanhamento de atestados médicos no Instituto Federal de Educação, Ciência e Tecnologia (IFS). O aplicativo foi projetado para agilizar o processo, reduzir erros e aumentar a eficiência administrativa no tratamento de atestados.
+O projeto "Atestados IFS" é um aplicativo console desenvolvido em Python que visa automatizar o processo de recebimento, registro e acompanhamento de atestados no Instituto Federal de Educação, Ciência e Tecnologia (IFS). O aplicativo foi projetado para agilizar o processo, reduzir erros e aumentar a eficiência administrativa no tratamento de atestados.
 
 O código fonte do projeto está disponível no repositório GitHub: https://github.com/MarcoM3l0/ATEST-IFS
 
