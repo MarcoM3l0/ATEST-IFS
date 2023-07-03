@@ -1,6 +1,7 @@
 import funcionalidades.verificacao as verificacao
 import telas.Registrar_atestado as Registrar_atestado
 import telas.tela_inicial as inicio
+import telas.Consultar_atestados as consulta
 
 
 def main():
@@ -11,7 +12,7 @@ def main():
         return
     elif opcao_escolhida == "2":
         verificacao.limpar_tela()
-        print("ok")
+        consulta.consultar_atestados()
         return
     elif opcao_escolhida == "3":
         verificacao.limpar_tela()
